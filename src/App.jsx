@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
+import { BiTrash } from 'react-icons/bi';
+
 
 function App() {
 	let [todos, setTodos] = useState([]);
@@ -28,7 +30,7 @@ function App() {
 		localStorage.setItem("todos", JSON.stringify(todos));
 		// setLocalStorage()
 
-		setCurrent("");
+		setCurrent(" ");
 	}
 
 	function deleteTodo(key) {
@@ -54,8 +56,8 @@ function App() {
 						{todo.todo}
 
 						<span>
-							<button onClick={() => deleteTodo(todo.key)}>
-								Delete
+							<button className="delete" onClick={() => deleteTodo(todo.key)}>
+								<BiTrash className="trash"/>
 							</button>
 						</span>
 					</li>
@@ -66,7 +68,9 @@ function App() {
 
 	return (
 		<main className="app">
-			<form>
+			<h1>Todo App</h1>
+      <div className="container">
+      <form>
 				<input
 					type="text"
 					placeholder="Enter Todo"
@@ -75,9 +79,11 @@ function App() {
 					name="todo"
 				/>
 
-				<button onClick={updateTodos}>enter</button>
+				<button className="enter" onClick={updateTodos}>+</button>
 			</form>
 			<ul>{todoElements}</ul>
+      </div>
+			
 		</main>
 	);
 }
