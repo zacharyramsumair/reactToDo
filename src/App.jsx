@@ -1,34 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import { nanoid } from "nanoid";
 
 function App() {
-  const [count, setCount] = useState(0)
+	let [todos, setTodos] = useState([]);
+	let [current, setCurrent] = useState("");
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+	function handleChange(e) {
+		e.preventDefault();
+		setCurrent(e.target.value);
+	}
+
+	function updateTodos(e) {
+		e.preventDefault();
+
+		
+		setTodos((prev) => [...prev, {todo: current, key:nanoid()}]);
+		setCurrent("");
+	}
+
+
+  function deleteTodo(key){
+    console.log()
+
+    setTodos(prev =>{
+      return prev.filter((todo)=> todo.key !== key )
+    })
+  }
+
+	let todoElements =
+		todos.length > 0
+			? todos.map((todo) => (
+					<li key={todo.key}>
+						<input type="checkbox" id={todo.key} name={todo.key} value={todo.todo} />
+						<label for={todo.key}>{todo.todo}</label>
+
+						<span>
+							<button onClick={()=> deleteTodo(todo.key)}>Delete</button>
+						</span>
+					</li>
+			  ))
+			: null;
+
+	return (
+		<main className="app">
+			<form>
+				<input
+					type="text"
+					placeholder="Enter Todo"
+					onChange={handleChange}
+					value={current}
+					name="todo"
+				/>
+
+				<button onClick={updateTodos}>enter</button>
+			</form>
+			<ul>{todoElements}</ul>
+		</main>
+	);
 }
 
-export default App
+export default App;
