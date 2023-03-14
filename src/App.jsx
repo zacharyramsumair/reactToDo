@@ -62,11 +62,7 @@ function App() {
 			  ))
 			: null;
 
-	// function setLocalStorage(){
-	//   console.log(todos)
-	//   localStorage.setItem('todos', JSON.stringify(todos));
 
-	// }
 
 	return (
 		<main className="app">
