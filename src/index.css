@@ -3,3 +3,19 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+
+
+.app{
+  display: flex;
+  justify-content: center;
+  /* align-items: center;  */
+  flex-direction: column;
+  margin: 20%;
+}
+
+
+li{
+  list-style: none;
+  align-items: flex-start;
+}
