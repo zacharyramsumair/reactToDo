@@ -1,83 +1,102 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-
-:root{
-  --lightGrey:#cccccd;
-  --veryLightGrey:#f3f1f1;
-  --galaxy:#8A4FD6;
-  --orangey:#E64D3B;
+:root {
+	--lightGrey: #cccccd;
+	--darkGrey: #9797a1;
+	--veryLightGrey: #f3f1f1;
+	--galaxy: #8a4fd6;
+	--orangey: #e64d3b;
+  --black: #000
 }
 
-
-
-.app{
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  flex-direction: column;
-  margin: 5% 20%;
+.app {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin: 5% 20%;
+  color: var(--black);
 }
 
-h1{text-align: left;
-margin-bottom: 1em;}
-
-
-form{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+h1 {
+	text-align: left;
+	margin-bottom: 1em;
 }
 
+form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
-input{
-  padding: 0.75em 1em;
-  border-radius: 2px;
-  border: 1px var(--lightGrey) solid;
-  margin: 0.5em;
+input {
+	padding: 0.75em 1em;
+	border-radius: 2px;
+	border: 1px var(--lightGrey) solid;
+	margin: 0.5em;
+}
+
+input[type="text"]:focus-visible{
   
+    outline: var(--galaxy) auto 1px;
 
 }
 
-
-.enter{
-  background-color: var(--galaxy);
-  padding: 5px 10px;
-  font-size: 1.2rem;
-  border-radius: 5px;
+input[type='checkbox'] {
+  accent-color: var(--galaxy);
 }
 
-ul{
-  margin: 0.5em;
+.enter {
+	background-color: var(--galaxy);
+	padding: 5px 10px;
+	font-size: 1.2rem;
+	border-radius: 5px;
 }
 
-li{
-  list-style: none;
-  align-items: flex-start;
-  margin: 1em 0 ;
-  padding: 0.5em  1em;
-  border-radius: 10px;
-  background-color: var(--veryLightGrey);
+ul {
+	margin: 0.5em;
+}
+
+li {
+	list-style: none;
+	margin: 1em 0;
+	padding: 0.5em 1em;
+	border-radius: 10px;
+	background-color: var(--veryLightGrey);
+	min-height: 34px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+li > div {
+	display: flex;
+	align-items: center;
 }
 
 
-.delete{
-  /* background-color: var(--orangey); */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  float: right;
-  background-color: transparent;
-  border: none;
+/* li > div > p{
+  color: var(--darkGrey);
+} */
+
+
+
+.delete {
+	/* background-color: var(--orangey); */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: right;
+	background-color: transparent;
+	border: none;
 }
 
-
-.trash{
-    /* background-color: var(--orangey); */
-    fill: var(--orangey);
-    font-size: 1.2rem;
-
+.trash {
+	/* background-color: var(--orangey); */
+	fill: var(--orangey);
+	font-size: 1.2rem;
 }
